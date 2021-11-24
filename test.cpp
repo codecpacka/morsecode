@@ -125,7 +125,7 @@ string encoded(char msg[])
       {
 
         temp = data[i].substr(1, 4);
-        // cout << temp;
+        cout << temp<<" ";
         encoded.append(temp);
         encoded.append(",");
         count++;
@@ -141,6 +141,10 @@ void stringtoarr(int count,string text,node *root){
   string letter;
   for (int i = 0; i < text.length(); i++)
   {
+    if(text[i]== ' '){
+      cout<<" ";
+    continue;
+    }
     if(text[i]!=',')
     {
       letter.append(1,text[i]);
@@ -170,7 +174,7 @@ int main()
   string text;
   cout<<"encoded text is"<<endl;
   text = encoded(msg);
-  cout << text << endl; // node *root=NULL;
+  // cout << text << endl; // node *root=NULL;
   // cout<<"number of letter are "<<count<<endl;
   node *root = NULL;
   root = root->insert(data, root, n, 0);
@@ -183,7 +187,7 @@ int main()
   // cout << endl;
   // cout << "viewing post order" << endl;
   // root->viewpostorder();
-  cout<<"\n  decoded text is"<<endl;
+  cout<<"\ndecoded text is"<<endl;
   stringtoarr(count,text,root);
   return 0;
 }
