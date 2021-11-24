@@ -23,7 +23,8 @@ public:
   void viewinorder();
   void viewpreorder();
   void viewpostorder();
-  node *search(node *root, char symbol);
+  void lsearch(string letter,int i);
+  node *search(node *root, string letter,int i);
 };
 
 node *node::insert(string arr[], node *root, int n, int i)
@@ -65,15 +66,36 @@ void node::viewpostorder()
     this->right->viewpostorder();
   cout << this->symbol << " ";
 }
-node *node::search(node *root, char symbol)
+void node::lsearch(string letter,int i){
+// cout<<"inside recursion"<<endl;
+cout<<letter[i];
+if (letter[i]== '.'){
+
+    cout<<this->symbol;
+    cout<<"going left";
+    this->left->lsearch(letter,i+1);
+}
+  else if (letter[i]== '-'){
+ cout<<this->symbol;
+    cout<<"going right";
+    this->right->lsearch(letter,i+1);
+  }
+  else{
+  cout << this->symbol << " ";
+  }
+}
+node *node::search(node *root,string letter,int i)
 {
-  // node *local=new node('*');
-  // local=root;
-  // if (symbol != ',')
-  // {
-  //   if (symbol=='.')
-  //   local=search(local->left,)
-  // }
+ cout<<"inside serach"<<endl;
+ if(letter[i]==','){
+   cout<<"element found";
+   cout<<root->symbol<<endl;
+  return root;
+ }
+  else if(letter[i]=='.')
+  return search(root->left,letter,i++);
+  else if(letter[i]=='-')
+  return search(root->right,letter,i++);
 }
 
 //encoding and returning the encoded test
@@ -86,7 +108,7 @@ string encoded(char msg[])
 
   ifstream in;
   // in.open("sample.txt");
-  in.open("data.txt");
+  in.open("sample.txt");
 
   while (in.eof() == 0)
   {
@@ -127,7 +149,7 @@ string encoded(char msg[])
   // cout << encoded;
   return encoded;
 }
-void stringtoarr(int count,string text){
+void stringtoarr(int count,string text,node *root){
   string letter;
   for (int i = 0; i < text.length(); i++)
   {
@@ -136,7 +158,14 @@ void stringtoarr(int count,string text){
       letter.append(1,text[i]);
     }
     else{
+      letter.append(1,',');
       cout<<"letter is"<<letter;
+      // node* temp=temp->search(root,letter,0);
+      root->lsearch(letter,0);
+
+  cout<<"search completed";
+
+      
       letter="";
       
     }
@@ -155,14 +184,6 @@ int main()
   cout << text << endl; // node *root=NULL;
   cout<<"number of letter are "<<count<<endl;
   node *root = NULL;
-
-  // std::string test = {"e.",
-  //         "t-",
-  //         "i..",
-  //         "a.-",
-  //         "n-.",
-  //         "m--",
-  //         "s..."};
   root = root->insert(data, root, n, 0);
 
   cout << "viewing in order " << endl;
@@ -173,6 +194,6 @@ int main()
   cout << endl;
   cout << "viewing post order" << endl;
   root->viewpostorder();
-  stringtoarr(count,text);
+  stringtoarr(count,text,root);
   return 0;
 }
