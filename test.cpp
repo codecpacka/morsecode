@@ -58,7 +58,12 @@ int main()
   
 
   for (int c = 0; c < strlen(msg); c++)
-  {
+  { 
+    if(msg[c] == ' ')
+    {
+      encoded.append(" ");
+      continue;
+    }
     for (int i = 0; i < n-2; i++)
     {
       if(data[i]=="")
