@@ -1,0 +1,5 @@
+delete whole line = ctr+shift+k
+insert a line above =ctr+shift+enter
+copy line below =ctr+d
+toogle between terminal and editor =ctrl+`
+kill terminal =ctrl+q
