@@ -35,24 +35,24 @@ int main()
 
     getline(in, str);
     // in>>str;
-    if (str.empty())
-    {
-      cout << ",";
-      data[n] = "ram";
-    }
+    // if (str.empty())
+    // {
+      
+    //   data[n] = "ram";
+    // }
     data[n] = str;
-    cout << str << endl;
+    // cout << str << endl;
     n++;
   }
 
   cout << "no of lines are " << n;
   cout << endl;
-  for (int i = 0; i < n; i++)
-  {
-    cout << data[i] << endl;
-    if (data[i] == "")
-      cout << "empty";
-  }
+  // for (int i = 0; i < n; i++)
+  // {
+  //   // cout << data[i] << endl;
+  //   if (data[i] == "")
+  //     cout << "empty";
+  // }
   cout << "enter a code msg" << endl;
   cin.getline(msg, 100);
   
