@@ -1,6 +1,14 @@
 
 #include <string>
 #include "morse.h"
+/**
+*brief the main function() its ask like an entry points
+*author codecpacka
+*date 25 nov 2021
+*details the main function works as an entry point of any programme
+*param none this function takes no parameters
+*return  int of value 0;
+*/
 
 int main()
 {
@@ -15,8 +23,8 @@ int main()
   node *root = NULL;
   root = root->insert(data, root, n, 0);
 
-  // cout << "viewing in order " << endl;   /// for testing purpose
-  // root->viewinorder();                   ///
+  // cout << "viewing in order " << endl;   /// for testing purpose to check whether tree is being 
+  // root->viewinorder();                   /// creating right or not
   // cout << endl;                         ////
   // cout << "viewing pre order" << endl;  ////
   // root->viewpreorder();                  //
@@ -24,6 +32,6 @@ int main()
   // cout << "viewing post order" << endl;
   // root->viewpostorder();
   cout << "\ndecoded text is" << endl;
-  stringtoarr(count, text, root);
+  stringtoarr(text,root);
   return 0;
 }
