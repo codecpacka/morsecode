@@ -1,86 +1,178 @@
 #include <iostream>
+#include <iostream>
 #include <fstream>
 #include <string.h>
 #include <string>
-using namespace std;
 
+using namespace std;
+string data[40];
+int n = 0,count=0;
 class node
 {
 public:
-  char key;
+  char symbol;
   node *left;
   node *right;
-  node *insert(node *root, char key);
+  node(char symbol)
+  {
+    this->symbol = symbol;
+    this->left = NULL;
+    this->right = NULL;
+  }
+  node *insert(string arr[], node *root, int n, int i);
+  void viewinorder();
+  void viewpreorder();
+  void viewpostorder();
+  node *search(node *root, char symbol);
 };
 
-node *node::insert(node *root, char key){
-
-};
-int main()
+node *node::insert(string arr[], node *root, int n, int i)
 {
-  string str,encoded,temp;
-  char msg[100];
-  int n = 0;
-  string data[40];
 
-  // cout << "hello world \n";
-  node *root = NULL;
+  if (i < n)
+  {
+    node *temp = new node(arr[i][0]);
+    root = temp;
+    // cout << root->symbol << endl;
+    //inserting in left
+    root->left = insert(arr, root->left, n, (2 * i) + 1);
+    //inseting in right
+    root->right = insert(arr, root->right, n, (2 * i) + 2);
+  }
+  return root;
+};
+void node::viewinorder()
+{
+  if (this->left != NULL)
+    this->left->viewinorder();
+  cout << this->symbol << " ";
+  if (this->right != NULL)
+    this->right->viewinorder();
+}
+void node::viewpreorder()
+{
+  cout << this->symbol << " ";
+  if (this->left != NULL)
+    this->left->viewpreorder();
+  if (this->right != NULL)
+    this->right->viewpreorder();
+}
+void node::viewpostorder()
+{
+  if (this->left != NULL)
+    this->left->viewpostorder();
+  if (this->right != NULL)
+    this->right->viewpostorder();
+  cout << this->symbol << " ";
+}
+node *node::search(node *root, char symbol)
+{
+  // node *local=new node('*');
+  // local=root;
+  // if (symbol != ',')
+  // {
+  //   if (symbol=='.')
+  //   local=search(local->left,)
+  // }
+}
+
+//encoding and returning the encoded test
+string encoded(char msg[])
+{
+  string str, encoded, temp;
+
+  // int n = 0;
+  // string data[40];
+
   ifstream in;
-  in.open("sample.txt");
+  // in.open("sample.txt");
+  in.open("data.txt");
 
-  // in>>str;
-  // cout<<str;
   while (in.eof() == 0)
   {
-
     getline(in, str);
-    // in>>str;
-    // if (str.empty())
-    // {
-      
-    //   data[n] = "ram";
-    // }
+
     data[n] = str;
-    // cout << str << endl;
+
     n++;
   }
 
   cout << "no of lines are " << n;
   cout << endl;
-  // for (int i = 0; i < n; i++)
-  // {
-  //   // cout << data[i] << endl;
-  //   if (data[i] == "")
-  //     cout << "empty";
-  // }
-  cout << "enter a code msg" << endl;
-  cin.getline(msg, 100);
-  
 
   for (int c = 0; c < strlen(msg); c++)
-  { 
-    if(msg[c] == ' ')
+  {
+    if (msg[c] == ' ')
     {
       encoded.append(" ");
       continue;
     }
-    for (int i = 0; i < n-2; i++)
+    for (int i = 0; i < n - 2; i++)
     {
-      if(data[i]=="")
-      continue;
+      if (data[i] == "")
+        continue;
       if (msg[c] == data[i].at(0))
       {
-        // cout<< data[i];
-        // data[i].copy(temp,3,1); 
-        temp=data[i].substr(1,4);
-        cout<<temp;
+
+        temp = data[i].substr(1, 4);
+        cout << temp;
         encoded.append(temp);
         encoded.append(",");
+        count++;
         break;
       }
     }
   }
-cout<<endl;
-cout<<encoded;
+  cout << endl;
+  // cout << encoded;
+  return encoded;
+}
+void stringtoarr(int count,string text){
+  string letter;
+  for (int i = 0; i < text.length(); i++)
+  {
+    if(text[i]!=',')
+    {
+      letter.append(1,text[i]);
+    }
+    else{
+      cout<<"letter is"<<letter;
+      letter="";
+      
+    }
+  }
+  
+}
+
+int main()
+{
+  char msg[100];
+  // string test[7];
+  cout << "enter a code msg" << endl;
+  cin.getline(msg, 100);
+  string text;
+  text = encoded(msg);
+  cout << text << endl; // node *root=NULL;
+  cout<<"number of letter are "<<count<<endl;
+  node *root = NULL;
+
+  // std::string test = {"e.",
+  //         "t-",
+  //         "i..",
+  //         "a.-",
+  //         "n-.",
+  //         "m--",
+  //         "s..."};
+  root = root->insert(data, root, n, 0);
+
+  cout << "viewing in order " << endl;
+  root->viewinorder();
+  cout << endl;
+  cout << "viewing pre order" << endl;
+  root->viewpreorder();
+  cout << endl;
+  cout << "viewing post order" << endl;
+  root->viewpostorder();
+  stringtoarr(count,text);
   return 0;
 }
