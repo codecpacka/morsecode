@@ -68,35 +68,23 @@ void node::viewpostorder()
 }
 void node::lsearch(string letter,int i){
 // cout<<"inside recursion"<<endl;
-cout<<letter[i];
+// cout<<letter[i];
 if (letter[i]== '.'){
 
-    cout<<this->symbol;
-    cout<<"going left";
+    // cout<<this->symbol;r
+    // cout<<"going left";
     this->left->lsearch(letter,i+1);
 }
   else if (letter[i]== '-'){
- cout<<this->symbol;
-    cout<<"going right";
+//  cout<<this->symbol;
+    // cout<<"going right";
     this->right->lsearch(letter,i+1);
   }
   else{
-  cout << this->symbol << " ";
+  cout << this->symbol;
   }
 }
-node *node::search(node *root,string letter,int i)
-{
- cout<<"inside serach"<<endl;
- if(letter[i]==','){
-   cout<<"element found";
-   cout<<root->symbol<<endl;
-  return root;
- }
-  else if(letter[i]=='.')
-  return search(root->left,letter,i++);
-  else if(letter[i]=='-')
-  return search(root->right,letter,i++);
-}
+
 
 //encoding and returning the encoded test
 string encoded(char msg[])
@@ -119,8 +107,8 @@ string encoded(char msg[])
     n++;
   }
 
-  cout << "no of lines are " << n;
-  cout << endl;
+  // cout << "no of lines are " << n;
+  // cout << endl;ra
 
   for (int c = 0; c < strlen(msg); c++)
   {
@@ -137,7 +125,7 @@ string encoded(char msg[])
       {
 
         temp = data[i].substr(1, 4);
-        cout << temp;
+        // cout << temp;
         encoded.append(temp);
         encoded.append(",");
         count++;
@@ -159,11 +147,11 @@ void stringtoarr(int count,string text,node *root){
     }
     else{
       letter.append(1,',');
-      cout<<"letter is"<<letter;
+      // cout<<"letter is"<<letter;
       // node* temp=temp->search(root,letter,0);
       root->lsearch(letter,0);
 
-  cout<<"search completed";
+  // cout<<"search completed";r
 
       
       letter="";
@@ -180,20 +168,22 @@ int main()
   cout << "enter a code msg" << endl;
   cin.getline(msg, 100);
   string text;
+  cout<<"encoded text is"<<endl;
   text = encoded(msg);
   cout << text << endl; // node *root=NULL;
-  cout<<"number of letter are "<<count<<endl;
+  // cout<<"number of letter are "<<count<<endl;
   node *root = NULL;
   root = root->insert(data, root, n, 0);
 
-  cout << "viewing in order " << endl;
-  root->viewinorder();
-  cout << endl;
-  cout << "viewing pre order" << endl;
-  root->viewpreorder();
-  cout << endl;
-  cout << "viewing post order" << endl;
-  root->viewpostorder();
+  // cout << "viewing in order " << endl;   /// for testing purpose
+  // root->viewinorder();                   ///
+  // cout << endl;                         ////
+  // cout << "viewing pre order" << endl;  ////
+  // root->viewpreorder();                  //
+  // cout << endl;
+  // cout << "viewing post order" << endl;
+  // root->viewpostorder();
+  cout<<"\n  decoded text is"<<endl;
   stringtoarr(count,text,root);
   return 0;
 }
