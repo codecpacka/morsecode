@@ -5,7 +5,7 @@
 #include <string>
 using namespace std;
 
-string data[40];
+string data[40]; //for storing data from the file
 int n = 0, count = 0;
 
 /**
@@ -62,7 +62,6 @@ node *node::insert(string arr[], node *root, int n, int i)
   return root;
 };
 
-
 ///these below functions were only created for testing purpose only///////
 
 void node::viewinorder() //for viewing tree in in order fashion
@@ -90,7 +89,6 @@ void node::viewpostorder() //for viewing tree in  postorder fashion
     this->right->viewpostorder();
   cout << this->symbol << " ";
 }
-
 
 /**
  * @brief function name search() used to decode the morse code from a given string
@@ -130,12 +128,9 @@ string encoded(char msg[])
 {
   string str, encoded, temp;
 
-  // int n = 0;
-  // string data[40];
+  ifstream in; //opening file stream in buffer for operations
 
-  ifstream in;
-  // in.open("sample.txt");
-  in.open("sample.txt");
+  in.open("morse.txt");
 
   while (in.eof() == 0)
   {
@@ -187,7 +182,7 @@ void stringtoarr(string text, node *root)
   string letter;
   for (int i = 0; i < text.length(); i++)
   {
-    if (text[i] == ' ')              //coutering spaces in string 
+    if (text[i] == ' ') //coutering spaces in string
     {
       cout << " ";
       continue;
@@ -199,8 +194,8 @@ void stringtoarr(string text, node *root)
     else
     {
       letter.append(1, ',');
-      root->decoder(letter, 0);                   //calling decoder 
-      letter = "";                                //clearing letter string 
+      root->decoder(letter, 0); //calling decoder
+      letter = "";              //clearing letter string
     }
   }
 }
