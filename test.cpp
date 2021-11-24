@@ -59,8 +59,10 @@ int main()
 
   for (int c = 0; c < strlen(msg); c++)
   {
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n-2; i++)
     {
+      if(data[i]=="")
+      continue;
       if (msg[c] == data[i].at(0))
       {
         // cout<< data[i];
