@@ -1,0 +1,100 @@
+\hypertarget{morse_8h}{}\doxysection{morse.\+h File Reference}
+\label{morse_8h}\index{morse.h@{morse.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classnode}{node}}
+\begin{DoxyCompactList}\small\item\em class with name node has been created to implement morse code tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{morse_8h_a76c134cf944dffc356ad04b6d622e0e6}{encoded}} (char msg\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em function name encoded it takes the user message in plain txt format ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{morse_8h_a53cb6723486cdd5091bf96a3d5cb0af4}{stringtoarr}} (string text, \mbox{\hyperlink{classnode}{node}} $\ast$root)
+\begin{DoxyCompactList}\small\item\em function name stringtoarr this function converts a large string and pass it to another function for decoding \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{morse_8h_af3e7d04c686a5387d72e0aa6528e259e}{data}} \mbox{[}40\mbox{]}
+\item 
+int \mbox{\hyperlink{morse_8h_a76f11d9a0a47b94f72c2d0e77fb32240}{n}} = 0
+\item 
+int \mbox{\hyperlink{morse_8h_ad43c3812e6d13e0518d9f8b8f463ffcf}{count}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{morse_8h_a76c134cf944dffc356ad04b6d622e0e6}\label{morse_8h_a76c134cf944dffc356ad04b6d622e0e6}} 
+\index{morse.h@{morse.h}!encoded@{encoded}}
+\index{encoded@{encoded}!morse.h@{morse.h}}
+\doxysubsubsection{\texorpdfstring{encoded()}{encoded()}}
+{\footnotesize\ttfamily string encoded (\begin{DoxyParamCaption}\item[{char}]{msg\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+function name encoded it takes the user message in plain txt format ~\newline
+ 
+
+\begin{DoxyAuthor}{Author}
+manshi patel 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+21 nov 2021 
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & message provided by user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+encoded an encoded string in morse code format
+\end{DoxyReturn}
+this function takes an user input then it read a txt file containg the alphabhar along with its appropriate morse code then it concatinates the input strings/lines from the file into an data array for future purpose then it return an concatinated string by adding delimeter i.\+e \char`\"{},\char`\"{} to it \mbox{\Hypertarget{morse_8h_a53cb6723486cdd5091bf96a3d5cb0af4}\label{morse_8h_a53cb6723486cdd5091bf96a3d5cb0af4}} 
+\index{morse.h@{morse.h}!stringtoarr@{stringtoarr}}
+\index{stringtoarr@{stringtoarr}!morse.h@{morse.h}}
+\doxysubsubsection{\texorpdfstring{stringtoarr()}{stringtoarr()}}
+{\footnotesize\ttfamily void stringtoarr (\begin{DoxyParamCaption}\item[{string}]{text,  }\item[{\mbox{\hyperlink{classnode}{node}} $\ast$}]{root }\end{DoxyParamCaption})}
+
+
+
+function name stringtoarr this function converts a large string and pass it to another function for decoding 
+
+\begin{DoxyAuthor}{Author}
+manshi patel 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+24 nov 2021 
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em text} & the string which contain the encoded morse code which is to be decoded \\
+\hline
+{\em root} & the initial pointer to the tree\\
+\hline
+\end{DoxyParams}
+this function takes an string along with pointer to the top node of the tree then it appends delimeter to the end of each morse code alphabet completion then the set of code is passed to decoder function for decoding the morse code 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{morse_8h_ad43c3812e6d13e0518d9f8b8f463ffcf}\label{morse_8h_ad43c3812e6d13e0518d9f8b8f463ffcf}} 
+\index{morse.h@{morse.h}!count@{count}}
+\index{count@{count}!morse.h@{morse.h}}
+\doxysubsubsection{\texorpdfstring{count}{count}}
+{\footnotesize\ttfamily int count = 0}
+
+\mbox{\Hypertarget{morse_8h_af3e7d04c686a5387d72e0aa6528e259e}\label{morse_8h_af3e7d04c686a5387d72e0aa6528e259e}} 
+\index{morse.h@{morse.h}!data@{data}}
+\index{data@{data}!morse.h@{morse.h}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily string data\mbox{[}40\mbox{]}}
+
+\mbox{\Hypertarget{morse_8h_a76f11d9a0a47b94f72c2d0e77fb32240}\label{morse_8h_a76f11d9a0a47b94f72c2d0e77fb32240}} 
+\index{morse.h@{morse.h}!n@{n}}
+\index{n@{n}!morse.h@{morse.h}}
+\doxysubsubsection{\texorpdfstring{n}{n}}
+{\footnotesize\ttfamily int n = 0}
+

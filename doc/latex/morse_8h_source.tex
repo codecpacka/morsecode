@@ -1,0 +1,163 @@
+\hypertarget{morse_8h_source}{}\doxysection{morse.\+h}
+\mbox{\hyperlink{morse_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{6 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keywordtype}{string} \mbox{\hyperlink{morse_8h_af3e7d04c686a5387d72e0aa6528e259e}{data}}[40]; \textcolor{comment}{//for storing data from the file}}
+\DoxyCodeLine{9 \textcolor{keywordtype}{int} \mbox{\hyperlink{morse_8h_a76f11d9a0a47b94f72c2d0e77fb32240}{n}} = 0, \mbox{\hyperlink{morse_8h_ad43c3812e6d13e0518d9f8b8f463ffcf}{count}} = 0;}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{classnode}{node}}}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21 \textcolor{keyword}{public}:}
+\DoxyCodeLine{22   \textcolor{keywordtype}{char} \mbox{\hyperlink{classnode_ade46f47b265cd0de2df5fa79a6bd190a}{symbol}};}
+\DoxyCodeLine{23   \mbox{\hyperlink{classnode}{node}} *\mbox{\hyperlink{classnode_a7cbff55ff448f557223f79299056e9b1}{left}};}
+\DoxyCodeLine{24   \mbox{\hyperlink{classnode}{node}} *\mbox{\hyperlink{classnode_abdc86d4c8604c481752953af3235fc47}{right}};}
+\DoxyCodeLine{25   \mbox{\hyperlink{classnode_ad881646e8fcb53932dcaece5876f5f12}{node}}(\textcolor{keywordtype}{char} \mbox{\hyperlink{classnode_ade46f47b265cd0de2df5fa79a6bd190a}{symbol}})}
+\DoxyCodeLine{26   \{}
+\DoxyCodeLine{27     this-\/>symbol = \mbox{\hyperlink{classnode_ade46f47b265cd0de2df5fa79a6bd190a}{symbol}};}
+\DoxyCodeLine{28     this-\/>left = NULL;}
+\DoxyCodeLine{29     this-\/>right = NULL;}
+\DoxyCodeLine{30   \}}
+\DoxyCodeLine{31   \mbox{\hyperlink{classnode}{node}} *\mbox{\hyperlink{classnode_a4effb30af59a9305e03450d8d0602f14}{insert}}(\textcolor{keywordtype}{string} arr[], \mbox{\hyperlink{classnode}{node}} *root, \textcolor{keywordtype}{int} \mbox{\hyperlink{morse_8h_a76f11d9a0a47b94f72c2d0e77fb32240}{n}}, \textcolor{keywordtype}{int} i); }
+\DoxyCodeLine{32   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnode_ada43c4d9930c6b936f11d275b542921b}{viewinorder}}();                                   }
+\DoxyCodeLine{33   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnode_ad20a570821197f9a52e61c5dc98a06da}{viewpreorder}}();                                  }
+\DoxyCodeLine{34   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnode_aae4dfa3519679ecbd4b84c419e69d7a3}{viewpostorder}}();                                 }
+\DoxyCodeLine{35   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnode_ab8c05a669ad3e4e55b605f4c37da0888}{decoder}}(\textcolor{keywordtype}{string} letter, \textcolor{keywordtype}{int} i);                   }
+\DoxyCodeLine{36 \};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{49 \mbox{\hyperlink{classnode}{node}} *\mbox{\hyperlink{classnode_a4effb30af59a9305e03450d8d0602f14}{node::insert}}(\textcolor{keywordtype}{string} arr[], \mbox{\hyperlink{classnode}{node}} *root, \textcolor{keywordtype}{int} \mbox{\hyperlink{morse_8h_a76f11d9a0a47b94f72c2d0e77fb32240}{n}}, \textcolor{keywordtype}{int} i)}
+\DoxyCodeLine{50 \{}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52   \textcolor{keywordflow}{if} (i < \mbox{\hyperlink{morse_8h_a76f11d9a0a47b94f72c2d0e77fb32240}{n}})}
+\DoxyCodeLine{53   \{}
+\DoxyCodeLine{54     \mbox{\hyperlink{classnode}{node}} *temp = \textcolor{keyword}{new} \mbox{\hyperlink{classnode_ad881646e8fcb53932dcaece5876f5f12}{node}}(arr[i][0]);}
+\DoxyCodeLine{55     root = temp;}
+\DoxyCodeLine{56     \textcolor{comment}{// cout << root-\/>symbol << endl;}}
+\DoxyCodeLine{57     \textcolor{comment}{//inserting in left}}
+\DoxyCodeLine{58     root-\/>\mbox{\hyperlink{classnode_a7cbff55ff448f557223f79299056e9b1}{left}} = \mbox{\hyperlink{classnode_a4effb30af59a9305e03450d8d0602f14}{insert}}(arr, root-\/>\mbox{\hyperlink{classnode_a7cbff55ff448f557223f79299056e9b1}{left}}, \mbox{\hyperlink{morse_8h_a76f11d9a0a47b94f72c2d0e77fb32240}{n}}, (2 * i) + 1);}
+\DoxyCodeLine{59     \textcolor{comment}{//inseting in right}}
+\DoxyCodeLine{60     root-\/>\mbox{\hyperlink{classnode_abdc86d4c8604c481752953af3235fc47}{right}} = \mbox{\hyperlink{classnode_a4effb30af59a9305e03450d8d0602f14}{insert}}(arr, root-\/>\mbox{\hyperlink{classnode_abdc86d4c8604c481752953af3235fc47}{right}}, \mbox{\hyperlink{morse_8h_a76f11d9a0a47b94f72c2d0e77fb32240}{n}}, (2 * i) + 2);}
+\DoxyCodeLine{61   \}}
+\DoxyCodeLine{62   \textcolor{keywordflow}{return} root;}
+\DoxyCodeLine{63 \};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 }
+\DoxyCodeLine{77 \textcolor{keywordtype}{void} \mbox{\hyperlink{classnode_ab8c05a669ad3e4e55b605f4c37da0888}{node::decoder}}(\textcolor{keywordtype}{string} letter, \textcolor{keywordtype}{int} i)}
+\DoxyCodeLine{78 \{}
+\DoxyCodeLine{79   \textcolor{keywordflow}{if} (letter[i] == \textcolor{charliteral}{'.'})}
+\DoxyCodeLine{80   \{}
+\DoxyCodeLine{81     this-\/>\mbox{\hyperlink{classnode_a7cbff55ff448f557223f79299056e9b1}{left}}-\/>\mbox{\hyperlink{classnode_ab8c05a669ad3e4e55b605f4c37da0888}{decoder}}(letter, i + 1);}
+\DoxyCodeLine{82   \}}
+\DoxyCodeLine{83   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (letter[i] == \textcolor{charliteral}{'-\/'})}
+\DoxyCodeLine{84   \{}
+\DoxyCodeLine{85     this-\/>\mbox{\hyperlink{classnode_abdc86d4c8604c481752953af3235fc47}{right}}-\/>\mbox{\hyperlink{classnode_ab8c05a669ad3e4e55b605f4c37da0888}{decoder}}(letter, i + 1);}
+\DoxyCodeLine{86   \}}
+\DoxyCodeLine{87   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{88   \{}
+\DoxyCodeLine{89     cout << this-\/>\mbox{\hyperlink{classnode_ade46f47b265cd0de2df5fa79a6bd190a}{symbol}};}
+\DoxyCodeLine{90   \}}
+\DoxyCodeLine{91 \}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{101 \textcolor{keywordtype}{string} \mbox{\hyperlink{morse_8h_a76c134cf944dffc356ad04b6d622e0e6}{encoded}}(\textcolor{keywordtype}{char} msg[])}
+\DoxyCodeLine{102 \{}
+\DoxyCodeLine{103   \textcolor{keywordtype}{string} str, \mbox{\hyperlink{morse_8h_a76c134cf944dffc356ad04b6d622e0e6}{encoded}}, temp;}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105   ifstream in; \textcolor{comment}{//opening file stream in buffer for operations}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107   in.open(\textcolor{stringliteral}{"{}morse.txt"{}});}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109   \textcolor{keywordflow}{while} (in.eof() == 0)}
+\DoxyCodeLine{110   \{}
+\DoxyCodeLine{111     getline(in, str);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113     \mbox{\hyperlink{morse_8h_af3e7d04c686a5387d72e0aa6528e259e}{data}}[\mbox{\hyperlink{morse_8h_a76f11d9a0a47b94f72c2d0e77fb32240}{n}}] = str;}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115     \mbox{\hyperlink{morse_8h_a76f11d9a0a47b94f72c2d0e77fb32240}{n}}++;}
+\DoxyCodeLine{116   \}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} c = 0; c < strlen(msg); c++)}
+\DoxyCodeLine{119   \{}
+\DoxyCodeLine{120     \textcolor{keywordflow}{if} (msg[c] == \textcolor{charliteral}{' '})}
+\DoxyCodeLine{121     \{}
+\DoxyCodeLine{122       \mbox{\hyperlink{morse_8h_a76c134cf944dffc356ad04b6d622e0e6}{encoded}}.append(\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{123       \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{124     \}}
+\DoxyCodeLine{125     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{morse_8h_a76f11d9a0a47b94f72c2d0e77fb32240}{n}} -\/ 2; i++)}
+\DoxyCodeLine{126     \{}
+\DoxyCodeLine{127       \textcolor{keywordflow}{if} (\mbox{\hyperlink{morse_8h_af3e7d04c686a5387d72e0aa6528e259e}{data}}[i] == \textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{128         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{129       \textcolor{keywordflow}{if} (msg[c] == \mbox{\hyperlink{morse_8h_af3e7d04c686a5387d72e0aa6528e259e}{data}}[i].at(0))}
+\DoxyCodeLine{130       \{}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132         temp = \mbox{\hyperlink{morse_8h_af3e7d04c686a5387d72e0aa6528e259e}{data}}[i].substr(1, 4);}
+\DoxyCodeLine{133         cout << temp << \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{134         \mbox{\hyperlink{morse_8h_a76c134cf944dffc356ad04b6d622e0e6}{encoded}}.append(temp);}
+\DoxyCodeLine{135         \mbox{\hyperlink{morse_8h_a76c134cf944dffc356ad04b6d622e0e6}{encoded}}.append(\textcolor{stringliteral}{"{},"{}});}
+\DoxyCodeLine{136         \mbox{\hyperlink{morse_8h_ad43c3812e6d13e0518d9f8b8f463ffcf}{count}}++;}
+\DoxyCodeLine{137         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{138       \}}
+\DoxyCodeLine{139     \}}
+\DoxyCodeLine{140   \}}
+\DoxyCodeLine{141   cout << endl;}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143   \textcolor{keywordflow}{return} \mbox{\hyperlink{morse_8h_a76c134cf944dffc356ad04b6d622e0e6}{encoded}};}
+\DoxyCodeLine{144 \}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{154 \textcolor{keywordtype}{void} \mbox{\hyperlink{morse_8h_a53cb6723486cdd5091bf96a3d5cb0af4}{stringtoarr}}(\textcolor{keywordtype}{string} text, \mbox{\hyperlink{classnode}{node}} *root)}
+\DoxyCodeLine{155 \{}
+\DoxyCodeLine{156   \textcolor{keywordtype}{string} letter;}
+\DoxyCodeLine{157   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < text.length(); i++)}
+\DoxyCodeLine{158   \{}
+\DoxyCodeLine{159     \textcolor{keywordflow}{if} (text[i] == \textcolor{charliteral}{' '}) \textcolor{comment}{//coutering spaces in string}}
+\DoxyCodeLine{160     \{}
+\DoxyCodeLine{161       cout << \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{162       \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{163     \}}
+\DoxyCodeLine{164     \textcolor{keywordflow}{if} (text[i] != \textcolor{charliteral}{','})}
+\DoxyCodeLine{165     \{}
+\DoxyCodeLine{166       letter.append(1, text[i]);}
+\DoxyCodeLine{167     \}}
+\DoxyCodeLine{168     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{169     \{}
+\DoxyCodeLine{170       letter.append(1, \textcolor{charliteral}{','});}
+\DoxyCodeLine{171       root-\/>\mbox{\hyperlink{classnode_ab8c05a669ad3e4e55b605f4c37da0888}{decoder}}(letter, 0); \textcolor{comment}{//calling decoder}}
+\DoxyCodeLine{172       letter = \textcolor{stringliteral}{"{}"{}};              \textcolor{comment}{//clearing letter string}}
+\DoxyCodeLine{173     \}}
+\DoxyCodeLine{174   \}}
+\DoxyCodeLine{175 \}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177 }
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 \textcolor{comment}{// void node::viewinorder() //for viewing tree in in order fashion}}
+\DoxyCodeLine{181 \textcolor{comment}{// \{                        //i.e (left,root,right)}}
+\DoxyCodeLine{182 \textcolor{comment}{//   if (this-\/>left != NULL)}}
+\DoxyCodeLine{183 \textcolor{comment}{//     this-\/>left-\/>viewinorder();}}
+\DoxyCodeLine{184 \textcolor{comment}{//   cout << this-\/>symbol << "{} "{};}}
+\DoxyCodeLine{185 \textcolor{comment}{//   if (this-\/>right != NULL)}}
+\DoxyCodeLine{186 \textcolor{comment}{//     this-\/>right-\/>viewinorder();}}
+\DoxyCodeLine{187 \textcolor{comment}{// \}}}
+\DoxyCodeLine{188 \textcolor{comment}{// void node::viewpreorder() //for viewing tree in in order fashion}}
+\DoxyCodeLine{189 \textcolor{comment}{// \{                         //i.e (root,left,right)}}
+\DoxyCodeLine{190 \textcolor{comment}{//   cout << this-\/>symbol << "{} "{};}}
+\DoxyCodeLine{191 \textcolor{comment}{//   if (this-\/>left != NULL)}}
+\DoxyCodeLine{192 \textcolor{comment}{//     this-\/>left-\/>viewpreorder();}}
+\DoxyCodeLine{193 \textcolor{comment}{//   if (this-\/>right != NULL)}}
+\DoxyCodeLine{194 \textcolor{comment}{//     this-\/>right-\/>viewpreorder();}}
+\DoxyCodeLine{195 \textcolor{comment}{// \}}}
+\DoxyCodeLine{196 \textcolor{comment}{// void node::viewpostorder() //for viewing tree in  postorder fashion}}
+\DoxyCodeLine{197 \textcolor{comment}{// \{                          //i.e (left,right,root)}}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199 \textcolor{comment}{//   if (this-\/>left != NULL)}}
+\DoxyCodeLine{200 \textcolor{comment}{//     this-\/>left-\/>viewpostorder();}}
+\DoxyCodeLine{201 \textcolor{comment}{//   if (this-\/>right != NULL)}}
+\DoxyCodeLine{202 \textcolor{comment}{//     this-\/>right-\/>viewpostorder();}}
+\DoxyCodeLine{203 \textcolor{comment}{//   cout << this-\/>symbol << "{} "{};}}
+\DoxyCodeLine{204 \textcolor{comment}{// \}}}
+
+\end{DoxyCode}

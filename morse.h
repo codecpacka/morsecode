@@ -10,8 +10,8 @@ int n = 0, count = 0;
 
 /**
   *@brief  class with name node has been created to implement morse code tree
-  *@author codecpacka
-  *@date 25 nov 2021
+  *@author manshi patel
+  *@date 22 nov 2021
   *@details this class is created to use the properties and functionality/concepts of oops it isused   to generate tree node instead of using structures
  *@param constructure char data type for leaf node generation
 */
@@ -37,8 +37,8 @@ public:
 
 /**
  * @brief *this function creates a morse tree for an array in where elemets are store in level fashion  
- * @author codecpacka
- * @date 25 NOV 2021
+ * @author manshi patel
+ * @date 22 NOV 2021
  * @param arr and array of string from which the morse tree in generated
  * @param root a object of class node used to keep the initial starting point of the tree
  * @param n int type used to tell how many elements are present in the array;
@@ -62,38 +62,12 @@ node *node::insert(string arr[], node *root, int n, int i)
   return root;
 };
 
-///these below functions were only created for testing purpose only///////
 
-void node::viewinorder() //for viewing tree in in order fashion
-{                        //i.e (left,root,right)
-  if (this->left != NULL)
-    this->left->viewinorder();
-  cout << this->symbol << " ";
-  if (this->right != NULL)
-    this->right->viewinorder();
-}
-void node::viewpreorder() //for viewing tree in in order fashion
-{                         //i.e (root,left,right)
-  cout << this->symbol << " ";
-  if (this->left != NULL)
-    this->left->viewpreorder();
-  if (this->right != NULL)
-    this->right->viewpreorder();
-}
-void node::viewpostorder() //for viewing tree in  postorder fashion
-{                          //i.e (left,right,root)
-
-  if (this->left != NULL)
-    this->left->viewpostorder();
-  if (this->right != NULL)
-    this->right->viewpostorder();
-  cout << this->symbol << " ";
-}
 
 /**
  * @brief function name search() used to decode the morse code from a given string
- * @author codecpacka
- * @date 25 nov 2021
+ * @author manshi patel
+ * @date 22 nov 2021
  * @param letter the morse code of a particular alphabet
  * @param i use to increment character count until delimeter is encountered
  * @return  void
@@ -118,8 +92,8 @@ void node::decoder(string letter, int i)
 
 /**
  * @brief function name encoded it takes the user message in plain txt format   
- * @author codecpacka
- * @date 25 nov 2021
+ * @author manshi patel
+ * @date 21 nov 2021
  * @param msg message provided by user
  * @return encoded an encoded string in morse code format
  * @details this function takes an user input then it read a txt file containg the alphabhar along with its appropriate morse code then it concatinates the input strings/lines from the file into an data array for future purpose then it return an concatinated string by adding delimeter i.e "," to it
@@ -171,7 +145,7 @@ string encoded(char msg[])
 
 /**
  * @brief function name stringtoarr this function converts a large string and pass it to another function     for   decoding
- * @author codecpacka
+ * @author manshi patel
  * @date 24 nov 2021 
  * @param text the string which contain the encoded morse code which is to be decoded 
  * @param root the initial pointer to the tree 
@@ -199,3 +173,32 @@ void stringtoarr(string text, node *root)
     }
   }
 }
+
+
+///these below functions were only created for testing purpose only///////
+
+// void node::viewinorder() //for viewing tree in in order fashion
+// {                        //i.e (left,root,right)
+//   if (this->left != NULL)
+//     this->left->viewinorder();
+//   cout << this->symbol << " ";
+//   if (this->right != NULL)
+//     this->right->viewinorder();
+// }
+// void node::viewpreorder() //for viewing tree in in order fashion
+// {                         //i.e (root,left,right)
+//   cout << this->symbol << " ";
+//   if (this->left != NULL)
+//     this->left->viewpreorder();
+//   if (this->right != NULL)
+//     this->right->viewpreorder();
+// }
+// void node::viewpostorder() //for viewing tree in  postorder fashion
+// {                          //i.e (left,right,root)
+
+//   if (this->left != NULL)
+//     this->left->viewpostorder();
+//   if (this->right != NULL)
+//     this->right->viewpostorder();
+//   cout << this->symbol << " ";
+// }

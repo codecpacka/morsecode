@@ -1,0 +1,179 @@
+\hypertarget{classnode}{}\doxysection{node Class Reference}
+\label{classnode}\index{node@{node}}
+
+
+class with name node has been created to implement morse code tree  
+
+
+
+
+{\ttfamily \#include $<$morse.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnode_ad881646e8fcb53932dcaece5876f5f12}{node}} (char \mbox{\hyperlink{classnode_ade46f47b265cd0de2df5fa79a6bd190a}{symbol}})
+\item 
+\mbox{\hyperlink{classnode}{node}} $\ast$ \mbox{\hyperlink{classnode_a4effb30af59a9305e03450d8d0602f14}{insert}} (string arr\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{classnode}{node}} $\ast$root, int \mbox{\hyperlink{morse_8h_a76f11d9a0a47b94f72c2d0e77fb32240}{n}}, int i)
+\begin{DoxyCompactList}\small\item\em $\ast$this function creates a morse tree for an array in where elemets are store in level fashion ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnode_ada43c4d9930c6b936f11d275b542921b}{viewinorder}} ()
+\begin{DoxyCompactList}\small\item\em declaration of the insert function \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnode_ad20a570821197f9a52e61c5dc98a06da}{viewpreorder}} ()
+\begin{DoxyCompactList}\small\item\em declaration of inorder traversal function for testing purpose only \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnode_aae4dfa3519679ecbd4b84c419e69d7a3}{viewpostorder}} ()
+\begin{DoxyCompactList}\small\item\em declaration of preorder traversal function for testing purpose only \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnode_ab8c05a669ad3e4e55b605f4c37da0888}{decoder}} (string letter, int i)
+\begin{DoxyCompactList}\small\item\em declaration of postorder traversal function for testing purpose only \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{classnode_ade46f47b265cd0de2df5fa79a6bd190a}{symbol}}
+\item 
+\mbox{\hyperlink{classnode}{node}} $\ast$ \mbox{\hyperlink{classnode_a7cbff55ff448f557223f79299056e9b1}{left}}
+\item 
+\mbox{\hyperlink{classnode}{node}} $\ast$ \mbox{\hyperlink{classnode_abdc86d4c8604c481752953af3235fc47}{right}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class with name node has been created to implement morse code tree 
+
+\begin{DoxyAuthor}{Author}
+manshi patel 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+22 nov 2021
+\end{DoxyDate}
+this class is created to use the properties and functionality/concepts of oops it isused to generate tree node instead of using structures 
+\begin{DoxyParams}{Parameters}
+{\em constructure} & char data type for leaf node generation \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classnode_ad881646e8fcb53932dcaece5876f5f12}\label{classnode_ad881646e8fcb53932dcaece5876f5f12}} 
+\index{node@{node}!node@{node}}
+\index{node@{node}!node@{node}}
+\doxysubsubsection{\texorpdfstring{node()}{node()}}
+{\footnotesize\ttfamily node\+::node (\begin{DoxyParamCaption}\item[{char}]{symbol }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classnode_ab8c05a669ad3e4e55b605f4c37da0888}\label{classnode_ab8c05a669ad3e4e55b605f4c37da0888}} 
+\index{node@{node}!decoder@{decoder}}
+\index{decoder@{decoder}!node@{node}}
+\doxysubsubsection{\texorpdfstring{decoder()}{decoder()}}
+{\footnotesize\ttfamily void node\+::decoder (\begin{DoxyParamCaption}\item[{string}]{letter,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+declaration of postorder traversal function for testing purpose only 
+
+function name search() used to decode the morse code from a given string
+
+\begin{DoxyAuthor}{Author}
+manshi patel 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+22 nov 2021 
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em letter} & the morse code of a particular alphabet \\
+\hline
+{\em i} & use to increment character count until delimeter is encountered \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+this function is called from with another function which passes a set of filtered out string which this function takes as input and then according to each character the tree is traversed and when the delimeter is met the value to that particular node is printed and thus the loop continuos in a recursive manner until the delimeter i.\+e \char`\"{},\char`\"{} is met \mbox{\Hypertarget{classnode_a4effb30af59a9305e03450d8d0602f14}\label{classnode_a4effb30af59a9305e03450d8d0602f14}} 
+\index{node@{node}!insert@{insert}}
+\index{insert@{insert}!node@{node}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnode}{node}} $\ast$ node\+::insert (\begin{DoxyParamCaption}\item[{string}]{arr\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{classnode}{node}} $\ast$}]{root,  }\item[{int}]{n,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+$\ast$this function creates a morse tree for an array in where elemets are store in level fashion ~\newline
+ 
+
+\begin{DoxyAuthor}{Author}
+manshi patel 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+22 NOV 2021 
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & and array of string from which the morse tree in generated \\
+\hline
+{\em root} & a object of class node used to keep the initial starting point of the tree \\
+\hline
+{\em n} & int type used to tell how many elements are present in the array; \\
+\hline
+{\em i} & int datatype used to traverse the array in the function; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+node$\ast$ returns updated valued to the position of root/first element of tree;
+\end{DoxyReturn}
+this function takes an arr as input which is generated while reading the file morse.\+txt then the elements first character is used to create a morse tree in inorder fashion here the variable n is caculated by reading the number of lines present in the file and int i is used to traverse the elements stored in array arr \mbox{\Hypertarget{classnode_ada43c4d9930c6b936f11d275b542921b}\label{classnode_ada43c4d9930c6b936f11d275b542921b}} 
+\index{node@{node}!viewinorder@{viewinorder}}
+\index{viewinorder@{viewinorder}!node@{node}}
+\doxysubsubsection{\texorpdfstring{viewinorder()}{viewinorder()}}
+{\footnotesize\ttfamily void node\+::viewinorder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+declaration of the insert function 
+
+\mbox{\Hypertarget{classnode_aae4dfa3519679ecbd4b84c419e69d7a3}\label{classnode_aae4dfa3519679ecbd4b84c419e69d7a3}} 
+\index{node@{node}!viewpostorder@{viewpostorder}}
+\index{viewpostorder@{viewpostorder}!node@{node}}
+\doxysubsubsection{\texorpdfstring{viewpostorder()}{viewpostorder()}}
+{\footnotesize\ttfamily void node\+::viewpostorder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+declaration of preorder traversal function for testing purpose only 
+
+\mbox{\Hypertarget{classnode_ad20a570821197f9a52e61c5dc98a06da}\label{classnode_ad20a570821197f9a52e61c5dc98a06da}} 
+\index{node@{node}!viewpreorder@{viewpreorder}}
+\index{viewpreorder@{viewpreorder}!node@{node}}
+\doxysubsubsection{\texorpdfstring{viewpreorder()}{viewpreorder()}}
+{\footnotesize\ttfamily void node\+::viewpreorder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+declaration of inorder traversal function for testing purpose only 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classnode_a7cbff55ff448f557223f79299056e9b1}\label{classnode_a7cbff55ff448f557223f79299056e9b1}} 
+\index{node@{node}!left@{left}}
+\index{left@{left}!node@{node}}
+\doxysubsubsection{\texorpdfstring{left}{left}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnode}{node}}$\ast$ node\+::left}
+
+\mbox{\Hypertarget{classnode_abdc86d4c8604c481752953af3235fc47}\label{classnode_abdc86d4c8604c481752953af3235fc47}} 
+\index{node@{node}!right@{right}}
+\index{right@{right}!node@{node}}
+\doxysubsubsection{\texorpdfstring{right}{right}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnode}{node}}$\ast$ node\+::right}
+
+\mbox{\Hypertarget{classnode_ade46f47b265cd0de2df5fa79a6bd190a}\label{classnode_ade46f47b265cd0de2df5fa79a6bd190a}} 
+\index{node@{node}!symbol@{symbol}}
+\index{symbol@{symbol}!node@{node}}
+\doxysubsubsection{\texorpdfstring{symbol}{symbol}}
+{\footnotesize\ttfamily char node\+::symbol}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{morse_8h}{morse.\+h}}\end{DoxyCompactItemize}
